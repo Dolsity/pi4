@@ -50,7 +50,9 @@ def getIP():
         if NIC == 'lo':
             continue
         try:
-            IPs[NIC] = subprocess.check_output('ifconfig ' + NIC + ' | grep "inet " | awk \'{print $2}\'', shell=True).decode().strip('\n')
+            IPs[NIC] = subprocess.check_output(
+                'ifconfig ' + NIC + ' | grep "inet " | awk \'{print $2}\'', shell=True
+            ).decode().strip('\n')
         except:
             continue
     return IPs
