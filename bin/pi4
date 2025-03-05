@@ -12,8 +12,6 @@
 ####
 ####   restart                    restart pi4 service
 ####
-####   disconnect                 disconnect from the raspberry pi terminal
-####
 ####   -h, --help                 help, show this help
 ####
 ####   -c, --check                show all configurations
@@ -130,11 +128,6 @@ restart() {
     start
 }
 
-disconnect() {
-    echo "disconnecting from the raspberry pi"
-    exit
-}
-
 want_reboot() {
     read -e -p "$(echo -e ${GREEN}Do you want to reboot to make the changes take effect? \(Y/N\): ${NC})" choice
     if [ "$choice" == "Y" ] || [ "$choice" == "y" ]; then
@@ -171,10 +164,6 @@ while [[ $# -gt 0 ]]; do
         ;;
         restart)
         restart
-        exit 0
-        ;;
-        disconnect)
-        disconnect
         exit 0
         ;;
         -h|--help)
