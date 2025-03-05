@@ -1,0 +1,16 @@
+# https://www.freedesktop.org/software/systemd/man/systemd.service.html
+[Unit]
+Description=pi4 service
+# Ensure this service starts after multi-user.target
+After=multi-user.target  # After multi-user.target, ensure GPIO is free
+
+[Service]
+Type=forking
+WorkingDirectory=/opt/pi4
+ExecStart=/usr/local/bin/pi4 start
+# Uncomment below line if you want to stop the service properly
+#ExecStop=/usr/local/bin/pi4 stop
+PrivateTmp=True
+
+[Install]
+WantedBy=multi-user.target
