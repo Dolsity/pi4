@@ -13,7 +13,6 @@ if os.geteuid() != 0:
     sys.exit(1)
 
 errors = []
-
 avaiable_options = ['-h', '--help']
 
 usage = '''
@@ -25,7 +24,6 @@ Options:
 '''
 
 APT_INSTALL_LIST = [
-    # 'libraspberrypi-bin',
     # 'raspi-config', # http://archive.raspberrypi.org/debian/pool/main/r/raspi-config/
     'net-tools',
     'python3-smbus',
@@ -43,7 +41,6 @@ APT_INSTALL_LIST = [
 
 PIP_INSTALL_LIST = [
     'rpi-ws281x',
-    # 'pillow --no-binary :all:', # https://pillow.readthedocs.io/en/latest/installation.html
     'pillow --no-cache-dir',
     'requests',
     'psutil',
@@ -239,13 +236,23 @@ def install():
     set_config(msg="config gpio-ir", name="dtoverlay=gpio-ir,gpio_pin", value="13")
     #
     print('create WorkingDirectory')
-    do(msg="create dir", cmd='mkdir -p /opt/%s' % __app_name__ + ' && chmod -R 774 /opt/%s' % __app_name__ + ' && chown %s:%s /opt/%s' % (username, username, __app_name__))
+    do(
+        msg="create dir", 
+        cmd='mkdir -p /opt/%s' % __app_name__ + ' && chmod -R 774 /opt/%s' % __app_name__ + ' && chown %s:%s /opt/%s' %
+        (username, username, __app_name__)
+    )
 
     do(msg='copy service file', cmd='cp -rpf ./bin/%s.service /usr/lib/systemd/system/%s.service ' % (__app_name__, __app_name__))
     do(msg="add excutable mode for service file", cmd='chmod +x /usr/lib/systemd/system/%s.service' % __app_name__)
     
-    do(msg='copy bin file', cmd='cp -rpf ./bin/%s /usr/local/bin/%s' % (__app_name__, __app_name__) + ' && cp -rpf ./%s/* /opt/%s/' % (__app_name__, __app_name__))
-    do(msg="add excutable mode for bin file",  cmd='chmod +x /usr/local/bin/%s' % __app_name__ + ' && chmod -R 774 /opt/%s' % __app_name__ + ' && chown -R %s:%s /opt/%s' % (username, username, __app_name__))
+    do(
+        msg='copy bin file', cmd='cp -rpf ./bin/%s /usr/local/bin/%s' %
+        (__app_name__, __app_name__) + ' && cp -rpf ./%s/* /opt/%s/' % (__app_name__, __app_name__)
+    )
+    do(
+        msg="add excutable mode for bin file",  cmd='chmod +x /usr/local/bin/%s' % __app_name__ + ' && chmod -R 774 /opt/%s' %
+        __app_name__ + ' && chown -R %s:%s /opt/%s' % (username, username, __app_name__)
+    )
     do(msg='copy config file', cmd=f'cp -rpf ./config.txt {config_file}')
     
     do(msg='enable the service to auto-start at boot', cmd='systemctl daemon-reload' + f' && systemctl enable {__app_name__}.service')
