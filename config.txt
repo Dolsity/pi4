@@ -1,0 +1,12 @@
+[all]
+temp_unit = F
+fan_temp = 90
+screen_always_on = False
+screen_off_time = 30
+rgb_enable = True
+led_brightness = 10
+rgb_style = breath
+rgb_color = ee55ee
+rgb_blink_speed = 50
+rgb_pwm_freq = 1000
+rgb_pin = 10
