@@ -1,0 +1,136 @@
+<footer class="footer_container">
+    <section class="footer">
+        <section class="footer_links">
+            <!-- CARD -->
+            <section class="footer_wrapper">
+                <div class="footer_link_items">
+                    <h2>Quick Links</h2>
+                    <a href="#" target="_blank" rel="nofollow noopener">Config</a>
+                </div>
+            </section>
+            <!-- CARD -->
+            <section class="footer_wrapper">
+                <div class="footer_link_items">
+                    <h2>Useful Links</h2>
+                    <a href="#" target="_blank" rel="nofollow noopener">GitHub Repository</a> 
+                </div>
+            </section>
+            <!-- CARD -->
+            <section class="footer_wrapper">
+                <div class="footer_link_items">
+                    <h2>Quick Actions</h2>
+                    <a href="#" rel="nofollow noopener">Restart</a>
+                    <a href="#" rel="nofollow noopener">Shutdown</a>
+                </div>
+            </section>
+        </section>
+    </section>
+</footer>
+
+<!-- STYLES FOR FOOTER -->
+<style>
+    /* -- FOOTER (DESKTOP SECTION 1 / 1) -- */
+    .footer_container {
+        background: #794e4e;
+    }
+
+    .footer {
+        display: flex;
+        flex-direction: column;
+        max-width: 50rem;
+        justify-content: center;
+        align-items: stretch;
+        padding: 2.5rem 0;
+        margin: auto;
+    }
+
+    .footer_links {
+        width: 100%;
+        max-width: 1000px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .footer_wrapper {
+        display: flex;
+    }
+
+    .footer_link_items {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 16px;
+        width: 160px;
+        align-items: center;
+        color: #ffffff;
+    }
+
+    .footer_link_items h2 {
+        margin-bottom: 0.3rem;
+        font-size: 1.3rem;
+    }
+
+    .footer_link_items a {
+        font-size: 1rem;
+        color: #ffffffe5;
+        text-decoration: none;
+        margin-bottom: 0.4rem;
+    }
+
+    .footer_link_items a:hover {
+        color: #a5a5a5;
+    }
+
+    .footer_logo {
+        display: flex;
+        align-items: center;
+        font-size: 2rem;
+    }
+
+    .footer_logo a {
+        color: #ffffff;
+        text-decoration: none;
+        margin-bottom: 0.5rem;
+    }
+
+    /* -- TABLET SECTION -- */
+    @media screen and (max-width: 800px) {
+        /* -- FOOTER (TABLET SECTION 1 / 1) -- */
+        .footer_link_items h2 {
+            margin-bottom: 0.3rem;
+            font-size: 1.3rem;
+        }
+
+        .footer_link_items a {
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .footer_logo {
+            font-size: 1.7rem;
+        }
+    }
+
+    /* -- MOBILE SECTION -- */
+    @media screen and (max-width: 690px) {
+        /* -- FOOTER (MOBILE SECTION 1 / 1) -- */
+        .footer_link_items {
+            margin: 10px;
+            width: 130px;
+        }
+
+        .footer_link_items h2 {
+            margin-bottom: 0.2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer_link_items a {
+            font-size: 0.8rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .footer_logo {
+            font-size: 1.7rem;
+        }
+    }
+</style>
