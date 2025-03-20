@@ -1,0 +1,18 @@
+@import url('https://unpkg.com/primer/build/build.css');
+
+* {
+    outline: #f00 solid 1px !important;
+    /* outline: none !important; */
+}
+
+html {
+    scroll-behavior: smooth;
+    min-width: 320px;
+    background-color: #826b6b;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    background: #ffffff;
+}

@@ -8,6 +8,7 @@ After=multi-user.target  # After multi-user.target, ensure GPIO is free
 Type=forking
 WorkingDirectory=/opt/pi4
 ExecStart=/usr/local/bin/pi4 start
+ExecStartPost=/usr/local/bin/pi4 start_web_server
 # Uncomment below line if you want to stop the service properly
 #ExecStop=/usr/local/bin/pi4 stop
 PrivateTmp=True

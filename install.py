@@ -44,6 +44,7 @@ PIP_INSTALL_LIST = [
     'pillow --no-cache-dir',
     'requests',
     'psutil',
+    'flask',
 ]
 
 

@@ -55,6 +55,7 @@
 
 CONF=/opt/pi4/config.txt
 main='/opt/pi4/main.py'
+web_server='/opt/pi4/server.py'
 # echo $main
 # echo 'config file:'$CONF
 
@@ -136,6 +137,23 @@ want_reboot() {
     fi
 }
 
+start_web_server() {
+    echo "starting web server"
+    python3 $web_server 1>/dev/null 2>>/opt/pi4/log &
+}
+
+stop_web_server() {
+    echo "stopping web server"
+    pid=$(ps aux | grep $web_server | awk '{print $2}')
+    kill -15 $pid >/dev/null 2>&1
+}
+
+restart_web_server() {
+    echo "restarting web server"
+    stop_web_server
+    start_web_server
+}
+
 change_config() {
     # $1: check string
     # $2: replace string
@@ -168,6 +186,18 @@ while [[ $# -gt 0 ]]; do
         ;;
         -h|--help)
         help
+        exit 0
+        ;;
+        start_web_server)
+        start_web_server
+        exit 0
+        ;;
+        stop_web_server)
+        stop_web_server
+        exit 0
+        ;;
+        restart_web_server)
+        restart_web_server
         exit 0
         ;;
         -c|--check)
