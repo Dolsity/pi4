@@ -18,3 +18,174 @@
         </ul>
     </div>
 </nav>
+
+<!-- STYLES FOR NAVIGATION -->
+<style>
+    /* -- NAVIGATION (DESKTOP SECTION 1 / 1) -- */
+    .navbar {
+        background: #794e4e;
+        height: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2rem;
+        position: sticky;
+        top: 0;
+        z-index: 999;
+    }
+
+    .navbar_container {
+        display: flex;
+        justify-content: space-between;
+        height: 70px;
+        z-index: 1;
+        width: 100%;
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 0 50px;
+    }
+
+    /* NAVIGATION LOGO (DESKTOP) */
+    #navbar_logo {
+        color: #ffffffec;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        text-decoration: none;
+        font-size: 2rem;
+        font-weight: 500;
+    }
+
+    #navbar_logo span {
+        display: inline-block;
+    }
+
+    /* NAVIGATION MENU (DESKTOP) */
+    .navbar_menu {
+        display: flex;
+        align-items: center;
+        list-style: none;
+    }
+
+    .navbar_item {
+        height: 70px;
+    }
+
+    .navbar_links {
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        height: 100%;
+        padding: 0 1rem;
+        transition: all 0.1s ease;
+    }
+        
+    .navbar_links:hover {
+        color: #cbcbcb;
+        transition: all 0.1s ease;
+    }
+
+    .highlight_link {
+        border-bottom: 4px solid #ffffffc2;
+    }
+
+    /* -- TABLET SECTION -- */
+    @media screen and (max-width: 800px) {
+        /* -- NAVIGATION (TABLET SECTION 1 / 1) -- */
+        .navbar_container {
+            height: 0px;
+            padding: 0;
+        }
+
+        #navbar_logo {
+            padding-left: 25px;
+        }
+
+        /* NAVIGATION BAR (TABLET) */
+        .navbar_toggle {
+            position: absolute;
+            cursor: pointer;
+            top: 20%;
+            right: 5%;
+            transform: translate(5%, 20%);
+        }
+
+        .navbar_toggle .bar {
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            transition: all 0.4s ease-in-out;
+            background: #ffffffdc;
+            display: block;
+            cursor: pointer;
+        }
+
+        .navbar_toggle.is-active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .navbar_toggle.is-active .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .navbar_toggle.is-active .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* NAVIGATION MENU (TABLET) */
+        .navbar_menu {
+            display: grid;
+            grid-template-columns: auto;
+            margin: 0;
+            width: 100%;
+            position: absolute;
+            top: -1000px;
+            opacity: 1;
+            transition: all 0.2s ease;
+            z-index: -1;
+            padding: 0;
+        }
+
+        .navbar_menu.active {
+            background: #888571;
+            top: 100%;
+            opacity: 1;
+            transition: all 0.4s ease;
+            z-index: 99;
+            height: 460px;
+            font-size: 1.6rem;
+            padding: 0;
+        }
+
+        .navbar_menu .navbar_item {
+            width: 100%;
+        }
+
+        .navbar_item .navbar_links {
+            text-align: center;
+            justify-content: center;
+            width: 100%;
+            color: #ffffffdc;
+            font-size: 23px;
+        }
+    }
+</style>
+
+<!-- SCRIPT FOR MOBILE NAVIGATION -->
+<script>
+    const mobile_menu = document.getElementById('mobile_menu');
+    const navbar_menu = document.querySelector('.navbar_menu');
+
+    mobile_menu.addEventListener('click', () => {
+        mobile_menu.classList.toggle('is-active');
+        navbar_menu.classList.toggle('active');
+    });
+
+    window.addEventListener('click', (e) => {
+        if (!mobile_menu.contains(e.target) && !navbar_menu.contains(e.target)) {
+            mobile_menu.classList.remove('is-active');
+            navbar_menu.classList.remove('active');
+        }
+    });
+</script>
