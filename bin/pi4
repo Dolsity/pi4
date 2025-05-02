@@ -6,50 +6,46 @@
 ####   pi4 <OPTION> <input>
 ####
 #### Options:
-####   start                      start pi4 service
+####   start                      Start pi4 service
 ####
-####   stop                       stop pi4 service
+####   stop                       Stop pi4 service
 ####
-####   restart                    restart pi4 service
+####   restart                    Restart pi4 service
 ####
-####   -h, --help                 help, show this help
+####   update                     Update pi4 from github
+####                              [branch] [commit]
 ####
-####   -c, --check                show all configurations
+####   -h, --help                 Show help
 ####
-####   -a, --auto                 [ on ], enable auto-start at boot
-####                              [ off ], disable auto-start at boot
+####   -c, --check                Display all configurations
 ####
-####   -u, --unit                 [ C/F ], set the unit of temperature,
-####                              C or F (Celsius/Fahrenheit)
+####   -a, --auto                 [on/off] Enable or disable auto-start at boot
 ####
-####   -f, --fan                  [ temp ], Temperature at which the fan switches on,
-####                              (default 90°F), in range (70 ~ 120)
+####   -u, --unit                 [C/F] Set the unit of temperature (Celsius/Fahrenheit)
 ####
-####   -al, --always_on           [on/true/off/false], whether the screen is always on,
-####                              default False
+####   -f, --fan                  [temp] Set fan activation temperature (°C, default 35, range 30-80)
 ####
-####   -s, --staty_time           [time], screen display duration in second,
-####                              in second, default 30
+####   -al, --always_on           [on/true/off/false] Whether the screen is always on (default: false)
 ####
-####   -re | --rgb_enable)        [on/true/off/false], whether enable rgb strip
+####   -s, --staty_time           [time] Screen display duration (default: 30 seconds)
 ####
-####   -rb, --led_brightness      [brightness], rgb strip brightness (0 ~ 100% default 10)
+####   -re | --rgb_enable)        [on/true/off/false] Enable/disable RGB strip
 ####
-####   -rs, --rgb_style           rgb strip display style, default: breath,
-####                              in [breath / static / leap / flow / raise_up / colorful
-####                              / colorful_static / colorful_leap]
+####   -rb, --led_brightness      [brightness] RGB strip brightness (default: 10, range 0-100)
 ####
-####   -rc, --rgb_color           [(HEX)color], set the color of rgb strip,
-####                              default: ee55ee
+####   -rs, --rgb_style           [style] RGB display style (default: breath)
+####                              style: breath, leap, flow, raise_up, colorful
 ####
-####   -rbs, --rgb_speed          [speed], rgb blink speed (0 ~ 100, default 50)
+####   -rc, --rgb_color           [(HEX)color] Set RGB color (default: 0a1aff)
 ####
-####   -pwm, --rgb_pwm            [frequency], rgb signal frequency (400 ~ 1600, default 1000 kHz)
+####   -rbs, --rgb_speed          [speed] RGB blink speed (default: 50, range 0-100)
 ####
-####   -rp, --rgb_pin             pin], rgb signal pin, could be [10 / spi/ SPI / 12 / pwm/ PWM] or
-####                              [21 / pcm / PCM], default 10
+####   -pwm, --rgb_pwm            [frequency] RGB signal frequency (default 1000 kHz, 400 ~ 1600)
 ####
-####   -F, --foreground           run in foreground
+####   -rp, --rgb_pin             [pin] RGB signal pin, could be [10/spi/SPI/12/pwm/PWM] or
+####                              [21/pcm/PCM], default: 10
+####
+####   -F, --foreground           Run in foreground
 ####
 #!/bin/bash
 
