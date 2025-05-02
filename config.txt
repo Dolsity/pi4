@@ -1,6 +1,6 @@
 [all]
-temp_unit = F
-fan_temp = 90
+temp_unit = C
+fan_temp = 35
 screen_always_on = False
 screen_off_time = 30
 rgb_enable = True

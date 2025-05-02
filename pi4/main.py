@@ -45,8 +45,8 @@ fan_pin = 6
 rgb_pin = 10
 update_frequency = 0.5 # Second
 
-temp_unit = 'F' # 'F' or 'C'
-fan_temp = 90 # Fahrenheit
+temp_unit = 'C' # 'F' or 'C'
+fan_temp = 35 # Celsius
 screen_always_on = False
 screen_off_time = 30
 rgb_enable = True
@@ -287,21 +287,21 @@ def main():
 
         # Fan control
         if fan_ok:
-            if temp_unit == 'F':
-                if CPU_temp_F > fan_temp:
-                    fan.on()
-                elif CPU_temp_F < fan_temp - temp_lower_set*1.8:
-                    fan.off()
-            elif temp_unit == 'C':
+            if temp_unit == 'C':
                 if CPU_temp_C > fan_temp:
                     fan.on()
                 elif CPU_temp_C < fan_temp - temp_lower_set:
                     fan.off()
-            else:
-                log('temp_unit error, use defalut value: 90\'F')
-                if CPU_temp_F > 90:
+            elif temp_unit == 'F':
+                if CPU_temp_F > fan_temp:
                     fan.on()
-                elif CPU_temp_F < 88:
+                elif CPU_temp_F < fan_temp - temp_lower_set*1.8:
+                    fan.off()
+            else:
+                log('temp_unit error, use defalut value: 35\'C')
+                if CPU_temp_C > 35:
+                    fan.on()
+                elif CPU_temp_C < 30:
                     fan.off()
 
         # Oled control
