@@ -134,7 +134,3 @@ Compatible Systems
 Contributing
 -----------
 If you have a solid understanding of python, you can contribute to the project by adding new features, fixing bugs, or improving the code.
-
-License
--------
-This project is licensed under the MIT License. See the `LICENSE <./LICENSE>`__ file for details.
