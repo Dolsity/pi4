@@ -1,7 +1,7 @@
 import os
 
 __app_name__ = 'pi4'
-__version__ = '0.1.0' # MAJOR.MINOR.PATCH
+__version__ = '0.1.1' # MAJOR.MINOR.PATCH
 
 try:
     username = os.getlogin()
