@@ -12,9 +12,6 @@
 ####
 ####   restart                    Restart pi4 service
 ####
-####   update                     Update pi4 from github
-####                              [branch] [commit]
-####
 ####   -h, --help                 Show help
 ####
 ####   -c, --check                Display all configurations
